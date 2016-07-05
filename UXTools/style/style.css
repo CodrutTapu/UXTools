@@ -1,0 +1,8 @@
+.demo {
+    background: #2f2f2f;
+    padding: 100px 0;
+    height: 100vh;
+}
+.grid-stack-item-content {
+    background: orange;
+}
