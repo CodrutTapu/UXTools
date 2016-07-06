@@ -30,11 +30,15 @@ var serialization = [
     {x: 8, y: 4, width: 2, height: 2},
     {x: 10, y: 4, width: 2, height: 2}
     ];
-    
+
     gridInitialize(serialization);
 
     $('#addModule').click(function(){
         var grid = $('.grid-stack').data('gridstack');
         grid.addWidget($('<div><div class="grid-stack-item-content"><p>New Module</p></div></div>'),
             0, 0, 1, 1);
+    });
+
+    $('.editable').click(function(){
+        alert("succes");
     });

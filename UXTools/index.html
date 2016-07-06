@@ -15,11 +15,191 @@
         <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
+
         <div class="container-fluid demo">
-            <button type="button" name="Add Module" class="btn btn-danger" id="addModule">Add Module</button>
+            <!-- <button type="button" name="Add Module" class="btn btn-danger" id="addModule">Add Module</button> -->
             <div class="container">
                 <div class="grid-stack" data-gs-width="12" data-gs-animate="yes">
+            </div>
+        </div>
 
+        <div class="container-fluid demo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="text-module white-brd"><!-- Text Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <h1 class="editable">Text Field</h1>
+                            <p class="editable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="image-module white-brd"><!-- Image Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <img src="http://lorempixel.com/400/200/" alt="image" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bar-graph-module white-brd"><!-- Bar Graph Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <h1>Bar Graph</h1>
+                            <div class="progress-wrapper">
+                                <p>Label 1</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                        <span class="sr-only">60% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-wrapper">
+                                <p>Label 2</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                        <span class="sr-only">60% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-wrapper">
+                                <p>Label 3</p>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                        <span class="sr-only">60% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="social-media-module white-brd"><!-- Social Media Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <ul class="no-pad">
+                                <li><a href="#" class="facebook"><span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span></a></li>
+                                <li><a href="#" class="twitter"><span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span></a></li>
+                                <li><a href="#" class="linkedin"><span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span></a></li>
+                                <li><a href="#" class="external-link"><span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-external-link fa-stack-1x fa-inverse"></i>
+                                </span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tag-module white-brd clearfix"><!-- Tag Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <div class="tag">tag</div>
+                            <div class="tag">tag</div>
+                            <div class="tag">tag</div>
+                            <div class="tag">tag</div>
+                            <div class="tag">tag</div>
+                            <div class="tag">tag</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="email-module white-brd"><!-- Email Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <h1>This is a form field to collect emails.</h1>
+                            <p>Give them a good reason.</p>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label for="Email" class="hidden">Name</label>
+                                    <input type="email" class="form-control" id="email" placeholder="you@yourmail.com" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Join Us!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="scale-chart-module white-brd"><!-- Scale Chart Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <h1>Scale Chart</h1>
+                            <div class="slide-wrapper">
+                                <div class="slide-header clearfix">
+                                    <p class="side-left">Side A</p>
+                                    <p class="side-right">Side B</p>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="slide-wrapper">
+                                <div class="slide-header clearfix">
+                                    <p class="side-left">Side A</p>
+                                    <p class="side-right">Side B</p>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-thumb"></div>
+                                </div>
+                            </div>
+                            <div class="slide-wrapper">
+                                <div class="slide-header clearfix">
+                                    <p class="side-left">Side A</p>
+                                    <p class="side-right">Side B</p>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pie-chart-module white-brd"><!-- Pie Chart Module -->
+                            <div class="module-buttons">
+                                <ul class="no-pad">
+                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
+                                </ul>
+                            </div>
+                            <h1>Pie Chart</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

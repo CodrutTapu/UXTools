@@ -1,8 +1,245 @@
 .demo {
-    background: #2f2f2f;
-    padding: 100px 0;
-    height: 100vh;
+    margin-top: 100px;
 }
 .grid-stack-item-content {
     background: orange;
+}
+
+/* TABLE OF CONTENTS
+1) Utility Classes
+2) Text Module
+3) Image Module
+4) Bar Graph Module
+5) Social Media Module
+6) Tag Module
+7) Email Module
+8) Scale Chart Module
+9) Pie Chart Module
+10) Module Buttons
+*/
+
+/*
+==================================
+    1) Utility Classes
+==================================
+*/
+.white-brd {
+    border: 2px solid #fff;
+}
+.no-pad {
+    padding: 0;
+}
+/*
+==================================
+    2) Text Module
+==================================
+*/
+.text-module {
+    padding: 10px;
+}
+.text-module:hover {
+    border: 2px solid #001926;
+}
+.text-module p {
+    text-align: justify;
+}
+/*
+==================================
+    3) Image Module
+==================================
+*/
+.image-module {
+    padding: 10px;
+}
+.image-module:hover {
+    border: 2px solid #001926;
+}
+.image-module img {
+    display: block;
+    width: 100%;
+}
+/*
+==================================
+    4) Bar Graph Module
+==================================
+*/
+.bar-graph-module {
+    padding: 10px
+}
+.bar-graph-module .progress-wrapper .progress {
+    height: 15px;
+    border-radius: 0;
+    margin-bottom: 15px;
+}
+.bar-graph-module .progress-wrapper p {
+    margin: 0;
+}
+.bar-graph-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    5) Social Media Module
+==================================
+*/
+.social-media-module {
+    padding: 10px;
+    text-align: center;
+}
+.social-media-module ul {
+    list-style-type: none;
+}
+.social-media-module ul li {
+    display: inline;
+}
+.social-media-module ul li a {
+    color: #333;
+}
+.social-media-module ul li .facebook:hover {
+    color: #3b5998;
+}
+.social-media-module ul li .twitter:hover {
+    color: #54ABEE;
+}
+.social-media-module ul li .linkedin:hover {
+    color: #0077B5;
+}
+.social-media-module ul li .external-link:hover {
+    color: #2bb673;
+}
+.social-media-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    6) Tag Module
+==================================
+*/
+.tag-module {
+    padding: 10px;
+}
+.tag-module .tag {
+    float: left;
+    padding: 4px 25px;
+    margin: 5px;
+    background-color: #e3e5e6;
+    text-transform: capitalize;
+}
+.tag-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    7) Email Module
+==================================
+*/
+.email-module {
+    padding: 10px;
+    text-align: center;
+}
+.email-module input {
+    border-radius: 0;
+}
+.email-module button {
+    border-radius: 0;
+}
+.email-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    8) Scale Chart Module
+==================================
+*/
+.scale-chart-module {
+    padding: 10px;
+}
+.scale-chart-module .slide-wrapper {
+    margin-bottom: 15px;
+}
+.scale-chart-module .slide-wrapper .slide {
+    height: 15px;
+    width: 100%;
+    background: #f2f2f3;
+}
+.scale-chart-module .slide-wrapper .slide .slide-thumb {
+    height: 15px;
+    width: 15px;
+    background: #337ab7;
+    position: relative;
+    left: 30%;
+}
+.scale-chart-module .slide-wrapper .slide-header .side-left {
+    float: left;
+    margin: 0;
+}
+.scale-chart-module .slide-wrapper .slide-header .side-right {
+    float: right;
+    margin: 0;
+}
+.scale-chart-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    9) Pie Chart Module
+==================================
+*/
+.pie-chart-module {
+    padding: 10px;
+    position: relative;
+}
+.pie-chart-module:hover {
+    border: 2px solid #001926;
+}
+/*
+==================================
+    10) Module Buttons
+==================================
+*/
+.module-buttons {
+    margin-top: -37px;
+    position: absolute;
+}
+.module-buttons ul {
+    list-style-type: none;
+    margin-left: -12px;
+    display: none;
+    width: 100px;
+    text-align: left;
+}
+.module-buttons ul li {
+    display: inline;
+    background: #001926;
+    color: #fff;
+    padding: 7px;
+    cursor: pointer;
+}
+.module-buttons ul li:hover {
+    background: #333;
+}
+
+.text-module:hover .module-buttons ul{
+    display: block;
+}
+.image-module:hover .module-buttons ul{
+    display: block;
+}
+.bar-graph-module:hover .module-buttons ul{
+    display: block;
+}
+.social-media-module:hover .module-buttons ul{
+    display: block;
+}
+.tag-module:hover .module-buttons ul{
+    display: block;
+}
+.email-module:hover .module-buttons ul{
+    display: block;
+}
+.scale-chart-module:hover .module-buttons ul{
+    display: block;
+}
+.pie-chart-module:hover .module-buttons ul{
+    display: block;
 }
