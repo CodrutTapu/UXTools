@@ -77,6 +77,25 @@
 .bar-graph-module:hover {
     border: 2px solid #001926;
 }
+.bar-graph-module .delete-progress-bar {
+    position: absolute;
+    right: -14px;
+    height: 15px;
+    width: 15px;
+    background: red;
+    text-align: center;
+    line-height: 15px;
+    font-size: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+.progress-wrapper {
+    position: relative;
+}
+.progress:hover {
+    cursor: pointer;
+}
 /*
 ==================================
     5) Social Media Module
@@ -124,9 +143,24 @@
     margin: 5px;
     background-color: #e3e5e6;
     text-transform: capitalize;
+    position: relative;
 }
 .tag-module:hover {
     border: 2px solid #001926;
+}
+.tag-module .tag .delete-tag {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15px;
+    background: red;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    height: 15px;
+    line-height: 15px;
+    font-size: 10px;
 }
 /*
 ==================================
@@ -161,6 +195,10 @@
     height: 15px;
     width: 100%;
     background: #f2f2f3;
+    position: relative;
+}
+.scale-chart-module .slide-wrapper .slide:hover {
+    cursor: pointer;
 }
 .scale-chart-module .slide-wrapper .slide .slide-thumb {
     height: 15px;
@@ -179,6 +217,20 @@
 }
 .scale-chart-module:hover {
     border: 2px solid #001926;
+}
+.scale-chart-module .delete-slide {
+    position: absolute;
+    right: -15px;
+    height: 15px;
+    width: 15px;
+    background: red;
+    text-align: center;
+    line-height: 15px;
+    font-size: 10px;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    display: none;
 }
 /*
 ==================================
