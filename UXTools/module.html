@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Core Gridstack CSS -->
         <link rel="stylesheet" href="bower_components/gridstack/dist/gridstack.min.css">
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="vendor/jquery-ui-bootstrap.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="style/style.css">
     </head>
@@ -38,7 +40,13 @@
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <img src="http://lorempixel.com/400/200/" alt="image" />
+                            <img src="img/img-default.png" alt="profile-image" id="image-result"/>
+                            <div class="add-image">
+                                <h2>Image Upload by URL</h2>
+                                <input type="text" class="image-input-value">
+                                <button type="button" name="button" class="image-input-set-button btn btn-primary">Upload</button>
+                            </div>
+                            <div class="image-module-item-delete"><i class="fa fa-times" aria-hidden="true"></i></div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -52,35 +60,23 @@
                             <h1>Bar Graph</h1>
                             <div class="progress-wrapper">
                                 <p>Label</p>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                    <div class="delete-progress-bar">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-progress-bar">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="progress-wrapper">
                                 <p>Label</p>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                    <div class="delete-progress-bar">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-progress-bar">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="progress-wrapper">
                                 <p>Label</p>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                    <div class="delete-progress-bar">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-progress-bar">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
@@ -91,10 +87,32 @@
                         <div class="social-media-module white-brd"><!-- Social Media Module -->
                             <div class="module-buttons">
                                 <ul class="no-pad">
+                                    <li class="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <ul class="no-pad">
+                            <div class="edit-social-links">
+                                <ul class="edit-social-links-list">
+                                    <li><a href="#" class="facebook"><span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span></a><input type="text" class="facebook-link-edit" value=""></li>
+                                    <li><a href="#" class="twitter"><span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span></a><input type="text" class="twitter-link-edit" value=""></li>
+                                    <li><a href="#" class="linkedin"><span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                    </span></a><input type="text" class="linkedin-link-edit" value=""></li>
+                                    <li><a href="#" class="external-link"><span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-external-link fa-stack-1x fa-inverse"></i>
+                                    </span></a><input type="text" class="external-link-edit" value=""></li>
+                                    <li><button type="button" class="btn btn-primary update-social-links" name="update-social-links">Update</button></li>
+                                </ul>
+                            </div>
+                            <ul class="social-links-list no-pad">
                                 <li><a href="#" class="facebook"><span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -161,11 +179,9 @@
                                     <p class="side-left">Side A</p>
                                     <p class="side-right">Side B</p>
                                 </div>
-                                <div class="slide">
-                                    <div class="slide-thumb"></div>
-                                    <div class="delete-slide">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-slide">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="slide-wrapper">
@@ -173,11 +189,9 @@
                                     <p class="side-left">Side A</p>
                                     <p class="side-right">Side B</p>
                                 </div>
-                                <div class="slide">
-                                    <div class="slide-thumb"></div>
-                                    <div class="delete-slide">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-slide">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="slide-wrapper">
@@ -185,11 +199,9 @@
                                     <p class="side-left">Side A</p>
                                     <p class="side-right">Side B</p>
                                 </div>
-                                <div class="slide">
-                                    <div class="slide-thumb"></div>
-                                    <div class="delete-slide">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </div>
+                                <div class="v-slider"></div>
+                                <div class="delete-slide">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                         </div>
