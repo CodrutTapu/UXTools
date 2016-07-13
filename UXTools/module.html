@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="bower_components/gridstack/dist/gridstack.min.css">
         <!-- Vendors CSS -->
         <link rel="stylesheet" href="vendor/jquery-ui-bootstrap.css">
+        <!-- Summernote CSS -->
+        <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="style/style.css">
     </head>
@@ -28,8 +30,10 @@
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <h1 class="editable">Text Field</h1>
-                            <p class="editable">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>
+                            <div class="editable">
+                                <h1>Text Field</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -57,23 +61,23 @@
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <h1>Bar Graph</h1>
+                            <h1 class="editable">Bar Graph</h1>
                             <div class="progress-wrapper">
-                                <p>Label</p>
+                                <p class="editable">Label</p>
                                 <div class="v-slider"></div>
                                 <div class="delete-progress-bar">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="progress-wrapper">
-                                <p>Label</p>
+                                <p class="editable">Label</p>
                                 <div class="v-slider"></div>
                                 <div class="delete-progress-bar">
                                     <i class="fa fa-times" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <div class="progress-wrapper">
-                                <p>Label</p>
+                                <p class="editable">Label</p>
                                 <div class="v-slider"></div>
                                 <div class="delete-progress-bar">
                                     <i class="fa fa-times" aria-hidden="true"></i>
@@ -140,7 +144,7 @@
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <div class="tag">tag<div class="delete-tag"><i class="fa fa-times" aria-hidden="true"></i></div></div>
+                            <div class="tag"><p class="editable"></p>tag<div class="delete-tag"><i class="fa fa-times" aria-hidden="true"></i></div></div>
                             <div class="tag">tag<div class="delete-tag"><i class="fa fa-times" aria-hidden="true"></i></div></div>
                             <div class="tag">tag<div class="delete-tag"><i class="fa fa-times" aria-hidden="true"></i></div></div>
                         </div>
@@ -232,6 +236,8 @@
         <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
         <!-- Core Gridstack JS -->
         <script type="text/javascript" src="bower_components/gridstack/dist/gridstack.min.js"></script>
+        <!-- summernote JS -->
+        <script type="text/javascript" src="bower_components/summernote/dist/summernote.min.js"></script>
         <!-- Custom JS -->
         <script type="text/javascript" src="scripts/app.js"></script>
     </body>

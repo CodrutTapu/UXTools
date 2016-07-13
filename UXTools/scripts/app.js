@@ -57,7 +57,7 @@ $(document).on('mouseleave','.bar-graph-module .progress-wrapper',function(){
 });
 (function add(){
     $('.bar-graph-module .add').click(function(){
-        $(this).parents().eq(2).append("<div class='progress-wrapper'><p>Label</p><div class='v-slider'></div><div class='delete-progress-bar'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
+        $(this).parents().eq(2).append("<div class='progress-wrapper'><p class='editable'>Label</p><div class='v-slider'></div><div class='delete-progress-bar'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
 });
     $(".v-slider").slider({
         orientation: "horizontal",
@@ -221,3 +221,18 @@ $(".scale-chart-module .v-slider").slider({
         $(this).parents().eq(2).remove();
     });
 })();
+/*
+==================================
+    Others
+==================================
+*/
+$(document).on('click','.editable',function(){
+    $(this).summernote({
+        focus: true,
+        toolbar: [
+            ['font', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul']],
+            ['insert', ['image', 'video', 'link']],
+            ['misc', ['codeview', 'table', 'undo', 'redo' ]],
+        ]
+    });
+});

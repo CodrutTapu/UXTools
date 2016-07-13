@@ -16,8 +16,8 @@
 8) Scale Chart Module
 9) Pie Chart Module
 10) Module Buttons
+11) Others
 */
-
 /*
 ==================================
     1) Utility Classes
@@ -106,6 +106,7 @@
 }
 .bar-graph-module .progress-wrapper p {
     margin: 0;
+    cursor: text;
 }
 .bar-graph-module .progress-wrapper .v-slider {
     height: 15px;
@@ -127,7 +128,7 @@
 .bar-graph-module .delete-progress-bar {
     position: absolute;
     right: -14px;
-    top: 20px;
+    bottom: 0;
     height: 15px;
     width: 15px;
     background: red;
@@ -227,6 +228,9 @@
     height: 15px;
     line-height: 15px;
     font-size: 10px;
+}
+.tag-module p {
+    margin: 0;
 }
 /*
 ==================================
@@ -364,4 +368,28 @@
 }
 .pie-chart-module:hover .module-buttons ul{
     display: block;
+}
+/*
+==================================
+    11) Others
+==================================
+*/
+.note-popover .popover-content, .panel-heading.note-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #337ab7;
+    margin: 0;
+    border-radius: 0;
+    z-index: 9999;
+}
+.note-editor.note-frame .note-statusbar {
+    display: none;
+}
+.note-editor.note-frame {
+    border: none;
+}
+.note-editor.note-frame .note-editing-area .note-editable {
+    padding: 0;
 }
