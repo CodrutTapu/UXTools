@@ -1,5 +1,5 @@
 .demo {
-    margin-top: 100px;
+    margin-top: 150px;
 }
 .grid-stack-item-content {
     background: orange;
@@ -212,6 +212,9 @@
     text-transform: capitalize;
     position: relative;
 }
+.tag-module .note-editor.note-frame .note-editing-area .note-editable {
+    background: #e3e5e6;
+}
 .tag-module:hover {
     border: 2px solid #001926;
 }
@@ -241,6 +244,9 @@
     padding: 10px;
     text-align: center;
 }
+.email-module h1 {
+    padding: 0 5px;
+}
 .email-module input {
     border-radius: 0;
 }
@@ -249,6 +255,16 @@
 }
 .email-module:hover {
     border: 2px solid #001926;
+}
+.email-module .send-btn {
+    height: 34px;
+    background: #337ab7;
+    color: #fff;
+    line-height: 34px;
+    cursor: text;
+    padding: 0 7px;
+    margin: 0;
+    font-weight: bold;
 }
 /*
 ==================================
@@ -285,10 +301,13 @@
 .scale-chart-module .slide-wrapper .slide-header .side-left {
     float: left;
     margin: 0;
+    width: 50%;
 }
 .scale-chart-module .slide-wrapper .slide-header .side-right {
     float: right;
     margin: 0;
+    width: 50%;
+    text-align: right;
 }
 .scale-chart-module:hover {
     border: 2px solid #001926;
@@ -304,7 +323,7 @@
     font-size: 10px;
     color: #fff;
     cursor: pointer;
-    top: 20px;
+    bottom: 0;
     display: none;
 }
 /*
@@ -374,22 +393,35 @@
     11) Others
 ==================================
 */
-.note-popover .popover-content, .panel-heading.note-toolbar {
+.note-all {
     position: fixed;
-    top: 0;
+    top: 50px;
     left: 0;
+    margin: 0 !important;
+    background: #001926;
+    padding: 10px;
     width: 100%;
-    background: #337ab7;
-    margin: 0;
-    border-radius: 0;
-    z-index: 9999;
+    z-index: 999;
 }
-.note-editor.note-frame .note-statusbar {
-    display: none;
+.note-btn {
+    border-radius: 0;
+}
+.note-editor.note-frame .note-statusbar .note-resizebar {
+    display:none;
 }
 .note-editor.note-frame {
     border: none;
 }
 .note-editor.note-frame .note-editing-area .note-editable {
     padding: 0;
+}
+.note-popover .popover-content, .panel-heading.note-toolbar {
+    padding: 0;
+}
+.main-content-wrapper {
+    margin-top: 120px;
+}
+.canvas-wrapper {
+    border: 2px dashed #001926;
+    padding: 40px 30px;
 }

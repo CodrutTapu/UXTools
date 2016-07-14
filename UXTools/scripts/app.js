@@ -143,7 +143,7 @@ $(document).on("click",".social-media-module .update-social-links",function(){
 })();
 (function add(){
     $('.tag-module .add').click(function(){
-        $(this).parents().eq(2).append("<div class='tag'>tag<div class='delete-tag'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
+        $(this).parents().eq(2).append("<div class='tag'><p class='editable'>tag</p><div class='delete-tag'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
     });
 })();
 $(document).on("mouseenter",".tag-module .tag",function(){
@@ -177,7 +177,7 @@ $(document).on("click",".tag-module .delete-tag",function(){
 })();
 (function add(){
     $('.scale-chart-module .add').click(function(){
-        $(this).parents().eq(2).append("<div class='slide-wrapper'><div class='slide-header clearfix'><p class='side-left'>Side A</p><p class='side-right'>Side B</p></div><div class='v-slider'></div><div class='delete-slide'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
+        $(this).parents().eq(2).append("<div class='slide-wrapper'><div class='slide-header clearfix'><div class='side-left'><p class='editable'>Side A</p></div><div class='side-right'><p class='editable'>Side B</p></div></div><div class='v-slider'></div><div class='delete-slide'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
         $( ".slide-thumb" ).draggable({ containment: "parent" });
     });
 })();
@@ -223,16 +223,30 @@ $(".scale-chart-module .v-slider").slider({
 })();
 /*
 ==================================
-    Others
+    Summernote Initialize
 ==================================
 */
 $(document).on('click','.editable',function(){
+    $('.editable').each(function(){
+        $(this).summernote('destroy');
+    });
     $(this).summernote({
-        focus: true,
         toolbar: [
-            ['font', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul']],
-            ['insert', ['image', 'video', 'link']],
-            ['misc', ['codeview', 'table', 'undo', 'redo' ]],
+            ['all', ['style','fontname', 'fontsize', 'color', 'bold', 'italic', 'underline', 'strikethrough','clear', 'paragraph', 'hr', 'ol', 'ul', 'picture', 'video', 'link', 'codeview', 'table', 'undo']]
         ]
     });
+});
+/*
+==================================
+    Navigation Items Initialize
+==================================
+*/
+$(document).on('click','.blank-canvas',function(){
+    $('.main-content-wrapper').append("<div class='container canvas-wrapper'></div>");
+});
+$(document).on('click','.add-text-module',function(){
+    $('.canvas-wrapper').append("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>");
+});
+$(document).on('click','.add-image-module',function(){
+    $('.canvas-wrapper').append("<div class='image-module white-brd'><!-- Image Module --><div class='module-buttons'><ul class='no-pad'><li class='add'><i class='fa fa-plus fa-lg' aria-hidden='true'></i></li><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><img src='img/img-default.png' alt='profile-image' id='image-result'/><div class='add-image'><h2>Image Upload by URL</h2><input type='text' class='image-input-value'><button type='button' name='button' class='image-input-set-button btn btn-primary'>Upload</button></div><div class='image-module-item-delete'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
 });
