@@ -236,12 +236,37 @@
                         <div class="pie-chart-module white-brd"><!-- Pie Chart Module -->
                             <div class="module-buttons">
                                 <ul class="no-pad">
-                                    <li><i class="fa fa-plus fa-lg" aria-hidden="true"></i></li>
+                                    <li class="add"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></li>
                                     <li class="delete"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <div class="editable">
-                                <h1>Pie Chart</h1>
+                            <div class="create-pie-chart-box">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2>Add <span class="add-pie-segment"><i class="fa fa-plus-circle" aria-hidden="true"></i></span> / Remove <span class="remove-pie-segment"><i class="fa fa-minus-circle" aria-hidden="true"></i></span></h2>
+                                    </div>
+                                    <div class="col-md-6 pie-labels-list">
+                                        <h4>Labels</h4>
+                                        <input class="pie-label form-control" type="text" name="name" value="Red" required>
+                                        <input class="pie-label form-control" type="text" name="name" value="Blue" required>
+                                        <input class="pie-label form-control" type="text" name="name" value="Yellow" required>
+                                    </div>
+                                    <div class="col-md-6 pie-data-list">
+                                        <h4>Data</h4>
+                                        <input class="pie-data form-control" type="number" name="name" value="12" required>
+                                        <input class="pie-data form-control" type="number" name="name" value="19" required>
+                                        <input class="pie-data form-control" type="number" name="name" value="3" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="create-pie-chart btn btn-primary" name="button">Create</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pie-chart-content">
+                                <div class="editable">
+                                    <h1>Pie Chart</h1>
+                                </div>
+                                <canvas id="pieChart" width="400" height="400"></canvas>
                             </div>
                         </div>
                     </div>
@@ -260,8 +285,10 @@
         <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
         <!-- Core Gridstack JS -->
         <script type="text/javascript" src="bower_components/gridstack/dist/gridstack.min.js"></script>
-        <!-- summernote JS -->
+        <!-- Summernote JS -->
         <script type="text/javascript" src="bower_components/summernote/dist/summernote.min.js"></script>
+        <!-- Chart JS -->
+        <script type="text/javascript" src="bower_components/Chart.js/dist/Chart.min.js"></script>
         <!-- Custom JS -->
         <script type="text/javascript" src="scripts/app.js"></script>
     </body>

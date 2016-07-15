@@ -3,21 +3,17 @@
     Text Module
 ==================================
 */
-(function remove(){
-    $('.text-module .delete').click(function(){
-        $(this).parents().eq(2).remove();
-    });
-})();
+$(document).on('click','.text-module .delete',function(){
+    $(this).parents().eq(2).remove();
+});
 /*
 ==================================
     Image Module
 ==================================
 */
-(function remove(){
-    $('.image-module .delete').click(function(){
-        $(this).parents().eq(2).remove();
-    });
-})();
+$(document).on('click','.image-module .delete',function(){
+    $(this).parents().eq(2).remove();
+});
 $(document).on('click','.image-module .image-input-set-button',function(){
     var val = $('.image-module .image-input-value').val();
     $(this).siblings('input:text').val('');
@@ -221,6 +217,95 @@ $(".scale-chart-module .v-slider").slider({
         $(this).parents().eq(2).remove();
     });
 })();
+var ctx = document.getElementById("pieChart");
+var pieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ["Red", "Blue", "Yellow"],
+        datasets: [{
+            data: [12, 19, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    showScale: false
+});
+$(document).on('click','.create-pie-chart',function(){
+    var pieLabels = [];
+    var pieData = [];
+    $('.pie-label').each(function(){
+        pieLabels.push($(this).val());
+    });
+    $('.pie-data').each(function(){
+        pieData.push($(this).val());
+    });
+    $('#pieChart').remove();
+    $('.pie-chart-content').append("<canvas id='pieChart' width='400' height='400'></canvas>");
+    var ctx = document.getElementById("pieChart");
+    var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: pieLabels,
+            datasets: [{
+                data: pieData,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(191, 63, 127, 0.2)',
+                    'rgba(38, 12, 12, 0.2)',
+                    'rgba(3, 124, 21, 0.2)',
+                    'rgba(242, 230, 63, 0.2)'
+                    
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(191, 63, 127, 1)',
+                    'rgba(38, 12, 12, 1)',
+                    'rgba(3, 124, 21, 1)',
+                    'rgba(242, 230, 63, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        showScale: false
+    });
+    pcModule.find('.pie-chart-content').stop().show(200);
+    pcModule.find('.create-pie-chart-box').stop().hide(200);
+});
+$(document).on('click','.pie-chart-module .add-pie-segment',function(){
+    $('.pie-labels-list').append("<input class='pie-label form-control' type='text' name='name' value='' required>");
+    $('.pie-data-list').append("<input class='pie-data form-control' type='number' name='name' value='' required>");
+});
+$(document).on('click','.pie-chart-module .remove-pie-segment',function(){
+    $('.pie-labels-list input').last().remove();
+    $('.pie-data-list input').last().remove();
+});
+$(document).on('click','.pie-chart-module .add',function(){
+    pcModule = $('.pie-chart-module');
+    if( $('.create-pie-chart-box').is(':visible') ){
+        pcModule.find('.create-pie-chart-box').stop().hide(200);
+    }else {
+        pcModule.find('.create-pie-chart-box').stop().show(200);
+    }
+});
 /*
 ==================================
     Summernote Initialize
@@ -242,7 +327,33 @@ $(document).on('click','.editable',function(){
 ==================================
 */
 $(document).on('click','.blank-canvas',function(){
-    $('.main-content-wrapper').append("<div class='container canvas-wrapper'></div>");
+    $('.main-content-wrapper').append("<div class='container canvas-wrapper'><div class='grid-stack' data-gs-width='12' data-gs-animate='yes'></div></div>");
+    function gridInitialize(serialization) {
+        var options = {
+            cellheight: 80,
+            verticalmargin: 10
+        };
+
+        $('.grid-stack').gridstack(options);
+
+        serialization = GridStackUI.Utils.sort(serialization);
+
+        var grid = $('.grid-stack').data('gridstack');
+        grid.removeAll();
+
+        _.each(serialization, function (node) {
+            grid.addWidget($("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>"),
+                node.x, node.y, node.width, node.height);
+        });
+    }
+
+    var serialization = [
+        {x: 0, y: 0, width: 4, height: 2},
+        {x: 4, y: 0, width: 4, height: 2},
+        {x: 8, y: 0, width: 4, height: 2},
+        ];
+
+        gridInitialize(serialization);
 });
 $(document).on('click','.add-text-module',function(){
     $('.canvas-wrapper').append("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>");
@@ -250,3 +361,8 @@ $(document).on('click','.add-text-module',function(){
 $(document).on('click','.add-image-module',function(){
     $('.canvas-wrapper').append("<div class='image-module white-brd'><!-- Image Module --><div class='module-buttons'><ul class='no-pad'><li class='add'><i class='fa fa-plus fa-lg' aria-hidden='true'></i></li><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><img src='img/img-default.png' alt='profile-image' id='image-result'/><div class='add-image'><h2>Image Upload by URL</h2><input type='text' class='image-input-value'><button type='button' name='button' class='image-input-set-button btn btn-primary'>Upload</button></div><div class='image-module-item-delete'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
 });
+/*
+==================================
+    Grid System
+==================================
+*/
