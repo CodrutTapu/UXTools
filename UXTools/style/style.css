@@ -1,10 +1,9 @@
 .demo {
-    margin-top: 150px;
+    margin-top: 250px;
 }
 .grid-stack-item-content {
     background: orange;
 }
-
 /* TABLE OF CONTENTS
 1) Utility Classes
 2) Text Module
@@ -414,7 +413,7 @@
 */
 .note-all {
     position: fixed;
-    top: 50px;
+    top: 0;
     left: 0;
     margin: 0 !important;
     background: #001926;

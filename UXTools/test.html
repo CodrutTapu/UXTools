@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>UXTools</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Core Bootstrap CSS -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Core Gridstack CSS -->
+        <link rel="stylesheet" href="bower_components/gridstack/dist/gridstack.min.css">
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="vendor/jquery-ui-bootstrap.css">
+        <!-- Summernote CSS -->
+        <link rel="stylesheet" href="bower_components/summernote/dist/summernote.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style/style.css">
+    </head>
+    <style media="screen">
+        .demo-block {
+            height: 100px;
+            background: orange;
+            border: 2px solid #000;
+        }
+        .placeholder {
+            border: 1px dashed #cccccc;
+            height:200px;
+            border-radius:5px;
+            margin: 10px 0px;
+        }
+        .real-first-child {
+        	margin-left:0 !important;
+        }
+        .dimension ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .dimension ul li {
+            display: inline;
+        }
+        .dimension ul li:hover {
+            cursor: pointer;
+        }
+        .grid {
+            margin-top: 100px;
+        }
+    </style>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                  <a class="navbar-brand" href="#">UXTools</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown grid-selector">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Add Layout Element <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="2"><a href="#">col-md-2</a></li>
+                                <li class="4"><a href="#">col-md-4</a></li>
+                                <li class="6"><a href="#">col-md-6</a></li>
+                                <li class="8"><a href="#">col-md-8</a></li>
+                                <li class="10"><a href="#">col-md-10</a></li>
+                                <li class="12"><a href="#">col-md-12</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container grid">
+            <div class="row sortable">
+                <div class="col-md-2 demo-block">
+                    <div class="dimension">
+                        <ul>
+                            <li class="minus"><i class="fa fa-minus" aria-hidden="true"></i></li>
+                            <li class="plus"><i class="fa fa-plus" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <h1>1</h1>
+                </div>
+                <div class="col-md-2 demo-block">
+                    <div class="dimension">
+                        <ul>
+                            <li class="minus"><i class="fa fa-minus" aria-hidden="true"></i></li>
+                            <li class="plus"><i class="fa fa-plus" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <h1>1</h1>
+                </div>
+                <div class="col-md-2 demo-block">
+                    <div class="dimension">
+                        <ul>
+                            <li class="minus"><i class="fa fa-minus" aria-hidden="true"></i></li>
+                            <li class="plus"><i class="fa fa-plus" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    <h1>1</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-wrapper">
+            <canvas id="pieChart" width="400" height="400" style="display: none;"></canvas>
+        </div>
+        <!-- Scripts -->
+        <!-- Core jQuery -->
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Core jQuery UI -->
+        <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <!-- Core Bootstrap JS -->
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Core Lodash JS -->
+        <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
+        <!-- Core Gridstack JS -->
+        <script type="text/javascript" src="bower_components/gridstack/dist/gridstack.min.js"></script>
+        <!-- Summernote JS -->
+        <script type="text/javascript" src="bower_components/summernote/dist/summernote.min.js"></script>
+        <!-- Chart JS -->
+        <script type="text/javascript" src="bower_components/Chart.js/dist/Chart.min.js"></script>
+        <!-- Custom JS -->
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script>
+            $( function() {
+                $( ".sortable" ).sortable();
+                $( ".sortable" ).disableSelection();
+            });
+            $(document).on('click','.demo-block .minus',function(){
+                var tDiv = $(this).parents().eq(2);
+                var i = 0;
+                for(i = 2 ; i <= 12; i=i+2){
+                    if(tDiv.hasClass("col-md-" + i)){
+                        tClass="col-md-" + i;
+                        if(i == 2){
+                            alert("Too Small!");
+                            tClass="col-md-4";
+                        }
+                    }
+                }
+                tDiv.removeClass(tClass);
+                if(tClass.length === 9){
+                    var nLength = parseInt(tClass[tClass.length-2] + tClass[tClass.length-1])-2;
+                }else {
+                    var nLength = parseInt(tClass[tClass.length-1])-2;
+                }
+                tDiv.addClass("col-md-" + nLength);
+            });
+            $(document).on('click','.demo-block .plus',function(){
+                var tDiv = $(this).parents().eq(2);
+                var i = 0;
+                for(i = 2 ; i <= 12; i=i+2){
+                    if(tDiv.hasClass("col-md-" + i)){
+                        tClass="col-md-" + i;
+                        if(i == 12){
+                            alert("Too Large!");
+                            tClass="col-md-10";
+                        }
+                    }
+                }
+                tDiv.removeClass(tClass);
+                console.log(tClass);
+                if(tClass.length === 9){
+                    var nLength = parseInt(tClass[tClass.length-2] + tClass[tClass.length-1])+2;
+                }else {
+                    var nLength = parseInt(tClass[tClass.length-1])+2;
+                }
+                tDiv.addClass("col-md-" + nLength );
+            });
+            $(document).on('click','.grid-selector .dropdown-menu li',function(){
+                var i;
+                for(i = 1 ; i <= 12; i++){
+                    if($(this).hasClass(i)){
+                        $('.sortable').append("<div class='col-md-" + i + " demo-block'><div class='dimension'><ul><li class='minus'><i class='fa fa-minus' aria-hidden='true'></i></li><li class='plus'><i class='fa fa-plus' aria-hidden='true'></i></li></ul></div><h1>new</h1></div>");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
