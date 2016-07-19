@@ -16,6 +16,7 @@
 9) Pie Chart Module
 10) Module Buttons
 11) Others
+12) Grid
 */
 /*
 ==================================
@@ -23,7 +24,7 @@
 ==================================
 */
 .white-brd {
-    border: 2px solid #fff;
+    border: 2px solid #F8F8F8;
 }
 .no-pad {
     padding: 0;
@@ -413,7 +414,7 @@
 */
 .note-all {
     position: fixed;
-    top: 0;
+    top: 51px;
     left: 0;
     margin: 0 !important;
     background: #001926;
@@ -442,4 +443,78 @@
 .canvas-wrapper {
     border: 2px dashed #001926;
     padding: 40px 30px;
+}
+.addModuleModal .modal-content {
+    border-radius: 0;
+}
+.addModuleModal .modal-header {
+    border-radius: 0;
+    background: #001926;
+    color: #fff;
+    padding: 0 0 0 15px;
+}
+.addModuleModal .modal-body {
+    padding: 30px 15px;
+}
+.addModuleModal .modal-body .col-md-3 {
+    margin-top: 20px;
+    text-align: center;
+}
+.addModuleModal .modal-body .col-md-3 p {
+    display: block;
+    height: 50px;
+    margin: auto;
+    padding: 5px 0 0 0;
+    background: red;
+    background: #001926;
+    color: #fff;
+    transition: background .5s;
+}
+.addModuleModal .modal-body .col-md-3 p:hover {
+    cursor: pointer;
+    background: #12587c;
+}
+/*
+==================================
+    12) Grid
+==================================
+*/
+.grid {
+    margin-top: 100px;
+}
+.grid-block {
+    margin: 10px 0;
+}
+.grid-block .grid-block-content {
+    background: #F8F8F8;
+    min-height: 45px;
+    border: 1px dashed #001926;
+    border-top: none;
+    padding: 35px 5px 2px 5px;
+}
+.grid-block  .grid-block-control ul {
+    list-style-type: none;
+    margin: 0 5px 0 5px;
+    padding: 0;
+    line-height: 27px;
+}
+.grid-block-control .delete, .grid-block-control .add {
+    float: right;
+}
+.grid-block-control ul li {
+    display: inline;
+    padding: 0 3px;
+}
+.grid-block-control ul li:hover {
+    cursor: pointer;
+}
+.grid [class*="col-md"]{
+    padding: 0 5px;
+}
+.grid-block .grid-block-control {
+    background: #001926;
+    color: #fff;
+    height: 25px;
+    z-index: 999;
+    cursor: move;
 }

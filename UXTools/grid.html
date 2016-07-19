@@ -19,14 +19,116 @@
         <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
-
-        <div class="container-fluid demo">
-            <button type="button" name="Add Module" class="btn btn-danger" id="addModule">Add Module</button>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
-                <div class="grid-stack" data-gs-width="12" data-gs-animate="yes"></div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                  <a class="navbar-brand" href="#">UXTools</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown grid-selector">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Add Layout Element <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="2"><a href="#">1/6</a></li>
+                                <li class="4"><a href="#">2/6</a></li>
+                                <li class="6"><a href="#">3/6</a></li>
+                                <li class="8"><a href="#">4/6</a></li>
+                                <li class="10"><a href="#">5/6</a></li>
+                                <li class="12"><a href="#">6/6</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container grid">
+            <div class="row sortable">
+                <div class="col-md-4 grid-block">
+                    <div class="grid-block-control">
+                        <ul>
+                            <li class="minus"><span class="glyphicon glyphicon-chevron-left"></span></li>
+                            <li class="dimension">2/6</li>
+                            <li class="plus"><span class="glyphicon glyphicon-chevron-right"></span></li>
+                            <li class="delete"><span class="glyphicon glyphicon-trash"></span></li>
+                            <li class="add"><span class="glyphicon glyphicon-plus"></span></li>
+                        </ul>
+                    </div>
+                    <div class="grid-block-content"></div>
+                </div>
+                <div class="col-md-4 grid-block">
+                    <div class="grid-block-control">
+                        <ul>
+                            <li class="minus"><span class="glyphicon glyphicon-chevron-left"></span></li>
+                            <li class="dimension">2/6</li>
+                            <li class="plus"><span class="glyphicon glyphicon-chevron-right"></span></li>
+                            <li class="delete"><span class="glyphicon glyphicon-trash"></span></li>
+                            <li class="add"><span class="glyphicon glyphicon-plus"></span></li>
+                        </ul>
+                    </div>
+                    <div class="grid-block-content"></div>
+                </div>
+                <div class="col-md-4 grid-block">
+                    <div class="grid-block-control">
+                        <ul>
+                            <li class="minus"><span class="glyphicon glyphicon-chevron-left"></span></li>
+                            <li class="dimension">2/6</li>
+                            <li class="plus"><span class="glyphicon glyphicon-chevron-right"></span></li>
+                            <li class="delete"><span class="glyphicon glyphicon-trash"></span></li>
+                            <li class="add"><span class="glyphicon glyphicon-plus"></span></li>
+                        </ul>
+                    </div>
+                    <div class="grid-block-content"></div>
+                </div>
             </div>
         </div>
-        <canvas id="pieChart" width="400" height="400"  style="display: none;"></canvas>
+
+        <div class="modal fade addModuleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Add Module</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="add-text-module"><span class="glyphicon glyphicon-text-width"></span><br>Text</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-picture"></span><br>Image</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-tasks"></span><br>Bar Graph</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-user"></span><br>Social Media</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-barcode"></span><br>Tags</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-envelope"></span><br>Email</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-th-list"></span><br>Scale Chart</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><span class="glyphicon glyphicon-record"></span><br>Pie Chart</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-wrapper">
+            <canvas id="pieChart" width="400" height="400" style="display: none;"></canvas>
+        </div>
         <!-- Scripts -->
         <!-- Core jQuery -->
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -38,54 +140,11 @@
         <script type="text/javascript" src="bower_components/lodash/dist/lodash.min.js"></script>
         <!-- Core Gridstack JS -->
         <script type="text/javascript" src="bower_components/gridstack/dist/gridstack.min.js"></script>
-        <!-- summernote JS -->
+        <!-- Summernote JS -->
         <script type="text/javascript" src="bower_components/summernote/dist/summernote.min.js"></script>
         <!-- Chart JS -->
         <script type="text/javascript" src="bower_components/Chart.js/dist/Chart.min.js"></script>
         <!-- Custom JS -->
         <script type="text/javascript" src="scripts/app.js"></script>
-
-        <script type="text/javascript">
-        function gridInitialize(serialization) {
-            var options = {
-                cellheight: 80,
-                verticalmargin: 10
-            };
-
-            $('.grid-stack').gridstack(options);
-
-            serialization = GridStackUI.Utils.sort(serialization);
-
-            var grid = $('.grid-stack').data('gridstack');
-            grid.removeAll();
-
-            _.each(serialization, function (node) {
-                grid.addWidget($('<div><div class="grid-stack-item-content"><p>Module</p></div></div>'),
-                    node.x, node.y, node.width, node.height);
-            });
-        }
-
-        var serialization = [
-            {x: 0, y: 0, width: 0, height: 4},
-            {x: 4, y: 0, width: 4, height: 4},
-            {x: 8, y: 0, width: 2, height: 2},
-            {x: 10, y: 0, width: 2, height: 2},
-            {x: 0, y: 2, width: 2, height: 2},
-            {x: 2, y: 2, width: 2, height: 4},
-            {x: 8, y: 2, width: 4, height: 2},
-            {x: 0, y: 4, width: 2, height: 2},
-            {x: 4, y: 4, width: 4, height: 2},
-            {x: 8, y: 4, width: 2, height: 2},
-            {x: 10, y: 4, width: 2, height: 2}
-            ];
-
-            gridInitialize(serialization);
-
-            $('#addModule').click(function(){
-                var grid = $('.grid-stack').data('gridstack');
-                grid.addWidget($('<div><div class="grid-stack-item-content"><p>New Module</p></div></div>'),
-                    0, 0, 1, 1);
-            });
-        </script>
     </body>
 </html>

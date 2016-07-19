@@ -268,7 +268,7 @@ $(document).on('click','.create-pie-chart',function(){
                     'rgba(38, 12, 12, 0.2)',
                     'rgba(3, 124, 21, 0.2)',
                     'rgba(242, 230, 63, 0.2)'
-                    
+
                 ],
                 borderColor: [
                     'rgba(255,99,132,1)',
@@ -323,46 +323,83 @@ $(document).on('click','.editable',function(){
 });
 /*
 ==================================
-    Navigation Items Initialize
-==================================
-*/
-$(document).on('click','.blank-canvas',function(){
-    $('.main-content-wrapper').append("<div class='container canvas-wrapper'><div class='grid-stack' data-gs-width='12' data-gs-animate='yes'></div></div>");
-    function gridInitialize(serialization) {
-        var options = {
-            cellheight: 80,
-            verticalmargin: 10
-        };
-
-        $('.grid-stack').gridstack(options);
-
-        serialization = GridStackUI.Utils.sort(serialization);
-
-        var grid = $('.grid-stack').data('gridstack');
-        grid.removeAll();
-
-        _.each(serialization, function (node) {
-            grid.addWidget($("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>"),
-                node.x, node.y, node.width, node.height);
-        });
-    }
-
-    var serialization = [
-        {x: 0, y: 0, width: 4, height: 2},
-        {x: 4, y: 0, width: 4, height: 2},
-        {x: 8, y: 0, width: 4, height: 2},
-        ];
-
-        gridInitialize(serialization);
-});
-$(document).on('click','.add-text-module',function(){
-    $('.canvas-wrapper').append("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>");
-});
-$(document).on('click','.add-image-module',function(){
-    $('.canvas-wrapper').append("<div class='image-module white-brd'><!-- Image Module --><div class='module-buttons'><ul class='no-pad'><li class='add'><i class='fa fa-plus fa-lg' aria-hidden='true'></i></li><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><img src='img/img-default.png' alt='profile-image' id='image-result'/><div class='add-image'><h2>Image Upload by URL</h2><input type='text' class='image-input-value'><button type='button' name='button' class='image-input-set-button btn btn-primary'>Upload</button></div><div class='image-module-item-delete'><i class='fa fa-times' aria-hidden='true'></i></div></div>");
-});
-/*
-==================================
     Grid System
 ==================================
 */
+$( function() {
+    $( ".sortable" ).sortable({
+        handle: ".grid-block-control"
+    });
+});
+$(document).on('click','.grid-block-control .minus',function(){
+    var tDiv = $(this).parents().eq(2);
+    var i = 0;
+    for(i = 2 ; i <= 12; i+=2){
+        if(tDiv.hasClass("col-md-" + i)){
+            tClass="col-md-" + i;
+            if(i == 2){
+                alert("Too Small!");
+                tClass="col-md-4";
+            }
+        }
+    }
+    tDiv.removeClass(tClass);
+    if(tClass.length === 9){
+        var nLength = parseInt(tClass[tClass.length-2] + tClass[tClass.length-1])-2;
+    }else {
+        var nLength = parseInt(tClass[tClass.length-1])-2;
+    }
+    tDiv.addClass("col-md-" + nLength);
+    var tDim = $(this).parent().find('.dimension').text().toString();
+    var temptDim = (parseInt(tDim[0]) - 1) + tDim[1] + tDim[2];
+    $(this).parent().find('.dimension').text(temptDim);
+});
+$(document).on('click','.grid-block-control .plus',function(){
+    var tDiv = $(this).parents().eq(2);
+    var i = 0;
+    for(i = 2 ; i <= 12; i+=2){
+        if(tDiv.hasClass("col-md-" + i)){
+            tClass="col-md-" + i;
+            if(i == 12){
+                alert("Too Large!");
+                tClass="col-md-10";
+            }
+        }
+    }
+    tDiv.removeClass(tClass);
+    if(tClass.length === 9){
+        var nLength = parseInt(tClass[tClass.length-2] + tClass[tClass.length-1])+2;
+    }else {
+        var nLength = parseInt(tClass[tClass.length-1])+2;
+    }
+    tDiv.addClass("col-md-" + nLength );
+    var tDim = $(this).parent().find('.dimension').text().toString();
+    var temptDim = (parseInt(tDim[0]) + 1) + tDim[1] + tDim[2];
+    $(this).parent().find('.dimension').text(temptDim);
+});
+$(document).on('click','.grid-block-control .delete',function(){
+    var tdiv = $(this).parents().eq(2);
+    tdiv.remove();
+});
+$(document).on('click','.grid-selector .dropdown-menu li',function(){
+    var i;
+    for(i = 2 ; i <= 12; i+=2){
+        if($(this).hasClass(i)){
+            $('.sortable').append("<div class='col-md-"+ i + " grid-block'><div class='grid-block-control'><ul><li class='minus'><span class='glyphicon glyphicon-chevron-left'></span></li><li class='dimension'>"+ (i/2) + "/6</li><li class='plus'><span class='glyphicon glyphicon-chevron-right'></span></li><li class='delete'><span class='glyphicon glyphicon-trash'></span></li><li class='add'><span class='glyphicon glyphicon-plus'></span></li></ul></div><div class='grid-block-content'></div></div>");
+        }
+    }
+});
+/*
+==================================
+    Add Module to layout element
+==================================
+*/
+$(document).on('click', '.grid-block-control .add', function () {
+    var modal = $('.addModuleModal');
+    var currentBlock = $(this).parents().eq(2).find('.grid-block-content');
+    modal.modal('show');
+    $(document).on('click','.addModuleModal .add-text-module',function(){
+        currentBlock.append("<div class='text-module white-brd'><div class='module-buttons'><ul class='no-pad'><li class='delete'><i class='fa fa-trash fa-lg' aria-hidden='true'></i></li></ul></div><div class='editable'><h1>Text Field</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra felis in sem porta feugiat.</p></div></div>");
+        modal.modal('hide');
+    });
+});
